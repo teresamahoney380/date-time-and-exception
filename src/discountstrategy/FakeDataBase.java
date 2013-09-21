@@ -31,7 +31,22 @@ private void setCustomerDb(){
     
 }
 private void setProductDb(){
+    productDb[0]=new Product("P000","Women's Scarf",11.99,"SEAS");
+    productDb[1]=new Product("P001","Women's Purse",39.99,"MVP");
+    productDb[2]=new Product("P002","Men's Socks",6.99,"QTY");
+    productDb[3]=new Product("P003","Women's Shoes",69.99,"STORE");
+    productDb[4]=new Product("P004","Childre's Mittens",8.99,"SEAS");
+    productDb[5]=new Product("P005","Men's Dress Shirt",40.99,"MVP");
+    productDb[6]=new Product("P006","Xmas dish Set",101.99,"SEAS");
+    productDb[7]=new Product("P007","Women's Panties",19.99,"QTY");
+    productDb[8]=new Product("P008","Bath Towel",11.99,"STORES");
+    productDb[9]=new Product("P009","Twin Sheet Set",59.99,"STORE");
     
 }
-    
+public Customer getCustomerDbItem(int i){
+    return customerDb[i];
+}
+public Product getProductDbItem(int i){
+    return productDb[i];
+}    
 }
