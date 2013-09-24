@@ -40,7 +40,7 @@ private void setProductDb(){
     productDb[6]=new Product("P006","Xmas dish Set",101.99,"SEAS");
     productDb[7]=new Product("P007","Women's Panties",19.99,"QTY");
     productDb[8]=new Product("P008","Bath Towel",11.99,"STORES");
-    productDb[9]=new Product("P009","Twin Sheet Set",59.99,"STORE");
+    productDb[9]=new Product("P009","Twin Sheet Set",59.99,"NONE");
     
 }
 public Customer getCustomerDbItem(int i){
@@ -49,4 +49,5 @@ public Customer getCustomerDbItem(int i){
 public Product getProductDbItem(int i){
     return productDb[i];
 }    
+
 }
