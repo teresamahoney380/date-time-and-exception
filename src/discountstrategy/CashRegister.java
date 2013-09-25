@@ -9,22 +9,29 @@ package discountstrategy;
  */
 public class CashRegister {
     private Purchase purch;
-    private Receipt r;
-    private FakeDataBase db;
     
-    public enum discType{
-        SEAS,
-        MVP,
-        STORE,
-        QTY,
-        NONE
-    }
+    private Receipt r;
+    
 
     public CashRegister(Purchase purch) {
         this.purch = purch;
-        db= new FakeDataBase();
-        r= new Receipt((db.getCustomerDbItem(purch.getCustIdx())));
+        
+        
+       // r= new Receipt((db.getCustomerDbItem(purch.getCustIdx())));
+        r=new Receipt(purch);
+        
     }
+//    private void generateLineItems(){
+//        for(int i=0; i<purch.getProdIdx().length; i++){
+//            LineItem[] tempL=new LineItem[lineItem.length+1];
+//            System.arraycopy(lineItem,0,tempL,0,lineItem.length);
+//            lineItem=tempL;
+//            lineItem[lineItem.length-1]=
+//            
+//        
+//        
+//    }
+//    }
     
   
     

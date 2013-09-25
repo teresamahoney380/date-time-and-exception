@@ -18,6 +18,7 @@ public class FakeDataBase {
     }
     
 private void setCustomerDb(){
+    customerDb=new Customer[10];
     customerDb[1]= new Customer(11111,"Cust1","Customer","111 First Street","City1","WI",11111,111111111);
     customerDb[2]= new Customer(22222,"Cust2","Customer","222 First Street","City2","WI",22222,222222222);
     customerDb[0]= new Customer(00001,"Cust0","Customer","001 First Street","City0","WI",00001,100000000);
@@ -31,6 +32,7 @@ private void setCustomerDb(){
     
 }
 private void setProductDb(){
+    productDb = new Product[10];
     productDb[0]=new Product("P000","Women's Scarf",11.99,"SEAS");
     productDb[1]=new Product("P001","Women's Purse",39.99,"MVP");
     productDb[2]=new Product("P002","Men's Socks",6.99,"QTY");

@@ -9,14 +9,28 @@ package discountstrategy;
  */
 public class Receipt {
     private Customer c;
-    private LineItem[] li;
-
-    public Receipt(Customer c) {
-        // object is instantiated with existing customer
-        this.c = c;
+    private Purchase purch;
+    private FakeDataBase db;
+    private LineItem[] lineItem;
+    
+    public enum discType{
+        SEAS,
+        MVP,
+        STORE,
+        QTY,
+        NONE
+    }
+// r= new Receipt((db.getCustomerDbItem(purch.getCustIdx())));
+    public Receipt(Purchase p) {
+        this.purch=p;
+        db= new FakeDataBase();
+        c= new Customer(db.getCustomerDbItem(purch.getCustIdx()));
+        System.out.println(c.toString());
+        lineItem = new LineItem[0];
+        generateLineItems();
     }
     
-    public void addLineItem(){
+    public void generateLineItems(){
         // add individual line item to LineItem Array
     }
   

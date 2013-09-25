@@ -30,6 +30,17 @@ public class Customer {
         setCustZip(custZip);
         setCustPhone(custPhone);
     }
+
+    Customer(Customer customerDbItem) {
+        custNo=customerDbItem.custNo;
+        custFName=customerDbItem.custFName;
+        custLName=customerDbItem.custLName;
+        custAddress=customerDbItem.custAddress;
+        custCity=customerDbItem.custCity;
+        custState=customerDbItem.custState;
+        custZip=customerDbItem.custZip;
+        custPhone=customerDbItem.custPhone;
+    }
     
     
     
@@ -105,6 +116,11 @@ public class Customer {
     public void setCustPhone(int custPhone) {
         // validate for not less than or equal to zero
         this.custPhone = custPhone;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "custNo=" + custNo + ", custFName=" + custFName + ", custLName=" + custLName + ", custAddress=" + custAddress + ", custCity=" + custCity + ", custState=" + custState + ", custZip=" + custZip + ", custPhone=" + custPhone + '}';
     }
     
     
