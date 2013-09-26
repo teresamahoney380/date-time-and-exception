@@ -22,7 +22,7 @@ public class Receipt {
         this.purch=p;
         db= new FakeDataBase();
         c= new Customer(db.getCustomerDbItem(purch.getCustIdx()));
-        System.out.println(c.toString());
+        //System.out.println(c.toString());
         lineItem = new LineItem[0];
         generateLineItems();
     }
@@ -37,14 +37,17 @@ public class Receipt {
             System.arraycopy(lineItem,0,tempL,0,lineItem.length);
             lineItem=tempL;
             lineItem[lineItem.length-1]= new LineItem(prod.getProdId(),purch.getQtyAmtItm(i), 
-                    prod.getProdUnitPrice(), prod.getProdDesc(), prod.getProdDiscCode());
-            
+                    prod.getProdUnitPrice(), prod.getProdDesc(), prod.getProdDiscCode());          
         
-        
+        }
     }
+
+    public Customer getCustomer() {
+        return c;
     }
-  
-    
-    
-    
+
+    public LineItem[] getLineItem() {
+        return lineItem;
+    }
+     
 }

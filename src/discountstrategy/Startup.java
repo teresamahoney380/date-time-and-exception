@@ -29,7 +29,7 @@ public class Startup {
         }
        
     
-    System.out.println(p1.getCustIdx());
+    // System.out.println(p1.getCustIdx());
        
     /* will  create 3 purchase objects containing customer & items purchased
     *  to be used by Cash Register to produce Receipt
