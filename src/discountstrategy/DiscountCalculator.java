@@ -8,6 +8,12 @@ package discountstrategy;
  * Teresa Mahoney
  */
 public interface DiscountCalculator {
-    public abstract double calculateDiscount();
+    /**
+     *
+     * @param amt
+     * @param price
+     * @return
+     */
+    public abstract double calculateDiscount(int amt, double price);
     
 }

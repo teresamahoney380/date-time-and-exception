@@ -12,7 +12,8 @@ public class NoDiscountCalculator implements DiscountCalculator{
     private double discAmt;
 
     @Override
-    public double calculateDiscount() {
+    public double calculateDiscount(int amt, double price) {
+        discAmt=0;
         return discAmt;
     }
     

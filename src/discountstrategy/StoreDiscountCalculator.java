@@ -10,10 +10,12 @@ package discountstrategy;
  */
 public class StoreDiscountCalculator implements DiscountCalculator{
     private double discAmt;
+    private final double DISCPCT=.15;
 
     @Override
-    public double calculateDiscount() {
-        return discAmt;
+    public double calculateDiscount(int qty, double price) {
+                
+        return qty*price*DISCPCT;
     }
     
 }

@@ -20,6 +20,13 @@ public class Product {
         setProdUnitPrice(prodUnitPrice);
         setProdDiscCode(prodDiscCode);
     }
+
+    Product(Product productDbItem) {
+        prodId=productDbItem.prodId;
+        prodDesc=productDbItem.prodDesc;
+        prodUnitPrice=productDbItem.prodUnitPrice;
+        prodDiscCode=productDbItem.prodDiscCode;   
+    }
     
     
     

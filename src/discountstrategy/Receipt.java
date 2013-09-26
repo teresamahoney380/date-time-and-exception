@@ -12,14 +12,11 @@ public class Receipt {
     private Purchase purch;
     private FakeDataBase db;
     private LineItem[] lineItem;
+    private Product prod;
     
-    public enum discType{
-        SEAS,
-        MVP,
-        STORE,
-        QTY,
-        NONE
-    }
+    
+    
+   
 // r= new Receipt((db.getCustomerDbItem(purch.getCustIdx())));
     public Receipt(Purchase p) {
         this.purch=p;
@@ -32,6 +29,19 @@ public class Receipt {
     
     public void generateLineItems(){
         // add individual line item to LineItem Array
+        for(int i=0; i<purch.getProdIdx().length; i++){
+            
+            prod= new Product(db.getProductDbItem(purch.getProductItem(i)));
+            
+            LineItem[] tempL=new LineItem[lineItem.length+1];
+            System.arraycopy(lineItem,0,tempL,0,lineItem.length);
+            lineItem=tempL;
+            lineItem[lineItem.length-1]= new LineItem(prod.getProdId(),purch.getQtyAmtItm(i), 
+                    prod.getProdUnitPrice(), prod.getProdDesc(), prod.getProdDiscCode());
+            
+        
+        
+    }
     }
   
     
