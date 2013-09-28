@@ -1,11 +1,12 @@
 /*
- * Calculates discount per line item
+ *  Strategy to Calculates discount per line item. Implementations are deteremined
+ *  by porduct discount code
  */
 package discountstrategy;
 
 /**
  *
- * Teresa Mahoney
+ *  @author Teresa Mahoney
  */
 public interface DiscountCalculator {
     /**

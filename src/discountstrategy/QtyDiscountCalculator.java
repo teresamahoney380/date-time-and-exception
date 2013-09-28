@@ -1,12 +1,11 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * impleentation of Discount Calculator for Quantity Discount
  */
 package discountstrategy;
 
 /**
  *
- * @author Owner
+ * @Teresa mahoney
  */
 public class QtyDiscountCalculator implements DiscountCalculator{
     private double discAmt;

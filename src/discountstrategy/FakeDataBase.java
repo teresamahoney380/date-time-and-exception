@@ -1,14 +1,18 @@
 /*
+ * Ideally this should be an implementation of the DataBaseForProject Strategy
+ * However the way the test data set up was designed first
+ * 
  * Creates an array of Customer Objects and Product Objects to simulate a
  * database of each
+ * 
  */
 package discountstrategy;
 
 /**
  *
- * @author Owner
+ * @author Teresa Mahoney
  */
-public class FakeDataBase {
+public class FakeDataBase implements DatabaseForProject{
     private Customer[] customerDb;
     private Product[] productDb;
 
@@ -51,5 +55,17 @@ public Customer getCustomerDbItem(int i){
 public Product getProductDbItem(int i){
     return productDb[i];
 }    
+
+    @Override
+    public  final Customer getCustomerByCustId(int CustId) {
+        // This would be used to lookup a customer by custoer ID
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public  final Product getProductByProdId(String prodId) {
+        // this would be used to lookup a procuct by product Id
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

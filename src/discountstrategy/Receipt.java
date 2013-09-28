@@ -5,7 +5,7 @@ package discountstrategy;
 
 /**
  *
- * Teresa Mahoney
+ * @ Teresa Mahoney
  */
 public class Receipt {
     private Customer c;
@@ -13,6 +13,9 @@ public class Receipt {
     private FakeDataBase db;
     private LineItem[] lineItem;
     private Product prod;
+    private double totalPurch; // total purchase amount for transaction
+    private double totalDisc; // total discounted for transaction
+    
     
     
     
@@ -20,6 +23,9 @@ public class Receipt {
 // r= new Receipt((db.getCustomerDbItem(purch.getCustIdx())));
     public Receipt(Purchase p) {
         this.purch=p;
+        totalPurch=0;
+        totalDisc=0;
+        
         db= new FakeDataBase();
         c= new Customer(db.getCustomerDbItem(purch.getCustIdx()));
         //System.out.println(c.toString());
@@ -37,7 +43,9 @@ public class Receipt {
             System.arraycopy(lineItem,0,tempL,0,lineItem.length);
             lineItem=tempL;
             lineItem[lineItem.length-1]= new LineItem(prod.getProdId(),purch.getQtyAmtItm(i), 
-                    prod.getProdUnitPrice(), prod.getProdDesc(), prod.getProdDiscCode());          
+                    prod.getProdUnitPrice(), prod.getProdDesc(), prod.getProdDiscCode()); 
+            totalPurch += (purch.getQtyAmtItm(i) * prod.getProdUnitPrice());
+            totalDisc += lineItem[lineItem.length-1].getDiscAmt();
         
         }
     }
@@ -49,5 +57,14 @@ public class Receipt {
     public LineItem[] getLineItem() {
         return lineItem;
     }
+
+    public double getTotalPurch() {
+        return totalPurch;
+    }
+
+    public double getTotalDisc() {
+        return totalDisc;
+    }
+    
      
 }

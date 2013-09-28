@@ -22,6 +22,7 @@ public class Product {
     }
 
     Product(Product productDbItem) {
+        //constructor for product object
         prodId=productDbItem.prodId;
         prodDesc=productDbItem.prodDesc;
         prodUnitPrice=productDbItem.prodUnitPrice;
@@ -66,6 +67,7 @@ public class Product {
         // validate with enum
         this.prodDiscCode = prodDiscCode;
     }
+    
     
     
 }

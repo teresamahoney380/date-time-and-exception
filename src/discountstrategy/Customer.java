@@ -1,11 +1,11 @@
-/*
- * Detail object pertaining to Customer Information
+/**
+ * Detail object pertaining to Customer Information for a retail sales transaction
  */
 package discountstrategy;
 
 /**
  *
- * Teresa Mahoney
+ * @author Teresa Mahoney
  */
 public class Customer {
     private int custNo;
@@ -17,6 +17,17 @@ public class Customer {
     private int custZip;
     private int custPhone;
 
+    /** constructor
+     * 
+     * @param custNo
+     * @param custFName
+     * @param custLName
+     * @param custAddress
+     * @param custCity
+     * @param custState
+     * @param custZip
+     * @param custPhone 
+     */
     public Customer(int custNo, String custFName, String custLName, String custAddress, String custCity, 
             String custState, int custZip, int custPhone) {
         // convenience construcotr for purpose of assignment
@@ -30,7 +41,11 @@ public class Customer {
         setCustZip(custZip);
         setCustPhone(custPhone);
     }
-
+/** this constructor needs to be used when an existing customer object attribute of
+ *  the Purchase Transaction object is instantiated
+ * @param customerDbItem 
+ */
+    
     Customer(Customer customerDbItem) {
         custNo=customerDbItem.custNo;
         custFName=customerDbItem.custFName;
@@ -45,82 +60,94 @@ public class Customer {
     
     
     // getter and setters
-    public int getCustNo() {
+    /**
+     *
+     * @return
+     */
+    public final int getCustNo() {
         return custNo;
     }
 
-    public void setCustNo(int custNo) {
+    public  final void setCustNo(int custNo) {
         // validate for not less than or equal to zero
         this.custNo = custNo;
     }
 
-    public String getCustFName() {
+    public final String getCustFName() {
          // validate for null or blank
         return custFName;
     }
 
-    public void setCustFName(String custFName) {
+    /**
+     *
+     * @param custFName
+     */
+    public final void setCustFName(String custFName) {
          // validate for null or blank
         this.custFName = custFName;
     }
 
-    public String getCustLName() {
+    public final String getCustLName() {
         return custLName;
     }
 
-    public void setCustLName(String custLName) {
+    public final void setCustLName(String custLName) {
          // validate for null or blank
         this.custLName = custLName;
     }
 
-    public String getCustAddress() {
+    public final String getCustAddress() {
         return custAddress;
     }
 
-    public void setCustAddress(String custAddress) {
+    public final void setCustAddress(String custAddress) {
          // validate for null or blank
         this.custAddress = custAddress;
     }
 
-    public String getCustCity() {
+    public final String getCustCity() {
         return custCity;
     }
 
-    public void setCustCity(String custCity) {
+    public final void setCustCity(String custCity) {
         // validate for null or blank
         this.custCity = custCity;
     }
 
-    public String getCustState() {
+    public final String getCustState() {
         return custState;
     }
 
-    public void setCustState(String custState) {
+    public final void setCustState(String custState) {
         // Validate via enum
         this.custState = custState;
     }
 
-    public int getCustZip() {
+    public final int getCustZip() {
         return custZip;
     }
 
-    public void setCustZip(int custZip) {
+    public final void setCustZip(int custZip) {
         // validate for not less than or equal to zero
         this.custZip = custZip;
     }
 
-    public int getCustphone() {
+    public final int getCustphone() {
         return custPhone;
     }
 
-    public void setCustPhone(int custPhone) {
+    public final void setCustPhone(int custPhone) {
         // validate for not less than or equal to zero
         this.custPhone = custPhone;
     }
 
     @Override
-    public String toString() {
-        return "Customer{" + "custNo=" + custNo + ", custFName=" + custFName + ", custLName=" + custLName + ", custAddress=" + custAddress + ", custCity=" + custCity + ", custState=" + custState + ", custZip=" + custZip + ", custPhone=" + custPhone + '}';
+    public final String toString() {
+        // this methods is strictly for the convenience of output for the receipt
+        // and to verify data
+        return "\nCustNo=" + custNo + "\n" + custFName + " " + custLName 
+                + "\n" + custAddress + "\n" + custCity + ", " + custState + "  " + custZip; 
+                
     }
     
     

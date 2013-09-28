@@ -1,5 +1,8 @@
 /*
- * Detail Object pertaining to line items of a receipt
+ * Detail Object pertaining to line items of a receipt with calculated discount
+ * amount.
+ * A toStrig method is also used for "quickie" output of the receipt but would
+ * not be used for real situation
  */
 package discountstrategy;
 
@@ -13,11 +16,11 @@ public class LineItem {
     private String itemProdId;
     private int itemQty;
     private double itemUnitPrice;
-   // private double itemDiscAmt; // item discount amount
     private String itemDesc;
     private double discAmt;
     private String dType;
     private DiscountCalculator dc;
+    
     public enum discType{
         SEAS,
         MVP,
@@ -32,6 +35,9 @@ public class LineItem {
     
 
     public LineItem(String itemProdId, int itemQty, double itemUnitPrice, String itemDesc, String discType) {
+    /* items are only set by the Constructor  -  they originate with the Receipt
+     * object as a validated Product Attributes
+     */
         this.itemProdId = itemProdId;
         this.itemQty = itemQty;
         this.itemUnitPrice = itemUnitPrice;
@@ -41,9 +47,7 @@ public class LineItem {
         discAmt=dc.calculateDiscount(itemQty, itemUnitPrice);
     }
     
-    /* items are only set by the Constructor  -  they originate with the Cash Register
-     * Serivce Program so they do not need validation
-     */
+    
     public String getItemProdId() {
         return itemProdId;
     }
@@ -63,9 +67,14 @@ public class LineItem {
     public String getItemDesc() {
         return itemDesc;
     }
+    public double getDiscAmt(){
+        return discAmt;
+    }
     
     
-    public void calcDisc(String dType){
+    public final void calcDisc(String dType){
+        // istatiates the correct implementation of the discountCalculator Strategy
+        // based on the product discount type
         switch(dType){
             case "MVP":
                 dc=new MvpDiscountCalculator();
@@ -94,7 +103,8 @@ public class LineItem {
          // Just utility code to format numbers nice.
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         return "\n" + itemProdId + "\t" + itemQty + 
-                "\t" + nf.format(itemUnitPrice )+ "\t" + itemDesc + "\t" + nf.format(discAmt) ;
+                "\t" + nf.format(itemUnitPrice )+ "\t" + itemDesc + "\t\t" 
+                +"\t"+nf.format(itemQty*itemUnitPrice)+"\t"+ nf.format(discAmt) ;
     }
     
     
