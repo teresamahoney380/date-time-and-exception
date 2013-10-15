@@ -4,12 +4,15 @@
 package discountstrategy;
 
 import java.text.NumberFormat;
+import datetimelab1.*;
+import java.util.Calendar;
 
 /**
  *
  * @author Teresa Mahoney
  */
 public class ConsoleReceiptWriter implements ReceiptWriter{
+    
     
     private Customer c; // customer object receipt attribute
       
@@ -21,6 +24,13 @@ public class ConsoleReceiptWriter implements ReceiptWriter{
     @Override
     public  final void WriteReceipt(Receipt r) {
         c=r.getCustomer();
+        // This is cobbled in to use the helper utility I created
+        // as part of the lab assignment
+        Calendar cal = Calendar.getInstance();
+        String format = "M/d/yy hh:mm a";
+        FormatTest f=new FormatTest();
+        System.out.println("\n--------------- New Receipt ---------------------");
+        System.out.println(f.convertDateToString(cal, format)+"\n");
         System.out.println(c.toString());
         // print line items
         for (int i=0; i<r.getLineItem().length; i++){
